@@ -8,8 +8,8 @@ DATA_DIRECTORY_TARGET:
     - ../../data/IDD
     - ../../data/mapillary
 DATA_LIST_TARGET:
-    - ../muhdi/dataset/cityscapes_list/{}.txt
-    - ../muhdi/dataset/idd_list/{}.txt
+    - ../../muhdi/dataset/cityscapes_list/{}.txt
+    - ../../muhdi/dataset/idd_list/{}.txt
     -
 NUM_WORKERS: 4
 NUM_CLASSES: 7
