@@ -1,0 +1,37 @@
+EXP_NAME: gta2cityscapes2idd_muhdi
+SOURCE: GTA
+DATA_DIRECTORY_SOURCE: ../../data/GTA5
+TARGETS:
+    - IDD
+DATA_DIRECTORY_TARGET:
+    - ../../data/IDD
+DATA_LIST_TARGET:
+    - ../muhdi/dataset/idd_list/{}.txt
+NUM_WORKERS: 4
+NUM_CLASSES: 7
+TRAIN:
+  INPUT_SIZE_SOURCE:
+    - 640
+    - 320
+  INPUT_SIZE_TARGET:
+    - 640
+    - 320
+  MODEL: DeepLabv2MuHDi
+  RESTORE_FROM: ../../pretrained_models/gta2cityscapes_advent_pretrained/model.pth
+  RESTORE_D_MAIN: ../../pretrained_models/gta2cityscapes_advent_pretrained/model_D_main.pth
+  RESTORE_D_AUX: ../../pretrained_models/gta2cityscapes_advent_pretrained/model_D_aux.pth
+  SET_TARGET:
+    - train
+  LAMBDA_ADV_MAIN: 0.001
+  LAMBDA_ADV_AUX: 0.0002
+  MAX_ITERS: 120000
+  EARLY_STOP: 60000
+TEST:
+  MODE: best
+  INPUT_SIZE_TARGET:
+    - 640
+    - 320
+  OUTPUT_SIZE_TARGET:
+    - 640
+    - 320
+  SNAPSHOT_MAXITER: 60000

@@ -1,0 +1,50 @@
+EXP_NAME: gi_cityscapes_klo_e-1_lr_2.5e-5_18c_640x320
+SOURCE: GTA
+DATA_DIRECTORY_SOURCE: /gpfswork/rech/vrk/ulz82cw/datasets/GTA5
+TARGETS:
+    - Cityscapes
+DATA_DIRECTORY_TARGET:
+    - /gpfswork/rech/vrk/ulz82cw/datasets/cityscapes
+DATA_LIST_TARGET:
+    - /gpfswork/rech/vrk/ulz82cw/projects/CDA/cda/dataset/cityscapes_list/{}.txt
+NUM_WORKERS: 4
+NUM_CLASSES: 18
+EXP_ROOT: /gpfsscratch/rech/vrk/ulz82cw/expe
+EXP_ROOT_SNAPSHOT: /gpfsscratch/rech/vrk/ulz82cw/expe
+TRAIN:
+  LEARNING_RATE_POLICY: Balanced
+  LEARNING_RATE: 2.5e-5
+  DISTILL:
+    LAMBDA: 1.0e-1
+    FEAT: False
+    KL_LOGITS: True
+  INPUT_SIZE_SOURCE:
+    - 640
+    - 320
+  INPUT_SIZE_TARGET:
+    - 640
+    - 320
+  DA_METHOD: AdvEnt
+  SET_SOURCE: train
+  MODEL: DeepLabv2Attention
+  RESTORE_FROM: /gpfswork/rech/vrk/ulz82cw/expe/ncda/gta_idd_18c_sr/model.pth
+  RESTORE_D_MAIN: /gpfswork/rech/vrk/ulz82cw/expe/ncda/gta_idd_18c_sr/model_D_main.pth
+  RESTORE_D_AUX: /gpfswork/rech/vrk/ulz82cw/expe/ncda/gta_idd_18c_sr/model_D_aux.pth
+  MULTI_LEVEL: True
+  SET_TARGET:
+    - train
+  INFO_TARGET:
+    - /gpfswork/rech/vrk/ulz82cw/projects/CDA/cda/dataset/cityscapes_list/info.json
+  LAMBDA_ADV_MAIN: 0.001
+  LAMBDA_ADV_AUX: 0.0002
+  MAX_ITERS: 120000
+  EARLY_STOP: 60000
+TEST:
+  MODE: best
+  INPUT_SIZE_TARGET:
+    - 640
+    - 320
+  OUTPUT_SIZE_TARGET:
+    - 640
+    - 320
+  SNAPSHOT_MAXITER: 60000

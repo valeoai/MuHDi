@@ -1,0 +1,33 @@
+EXP_NAME: gc_idd_olpod_e-6_lr_2.5e-5_7c_640x320
+SOURCE: GTA
+DATA_DIRECTORY_SOURCE: /gpfswork/rech/vrk/ulz82cw/datasets/GTA5
+TARGETS:
+    - GTA5
+    - Cityscapes
+    - IDD
+DATA_DIRECTORY_TARGET:
+    - /gpfswork/rech/vrk/ulz82cw/datasets/GTA5
+    - /gpfswork/rech/vrk/ulz82cw/datasets/cityscapes
+    - /gpfswork/rech/vrk/ulz82cw/datasets/IDD/IDD_Segmentation
+DATA_LIST_TARGET:
+    - /gpfswork/rech/vrk/ulz82cw/projects/CDA/cda/dataset/gta5_list/{}.txt
+    - /gpfswork/rech/vrk/ulz82cw/projects/CDA/cda/dataset/cityscapes_list/{}.txt
+    - /gpfswork/rech/vrk/ulz82cw/projects/CDA/cda/dataset/idd_list/{}.txt
+NUM_WORKERS: 4
+NUM_CLASSES: 7
+EXP_ROOT: /gpfsscratch/rech/vrk/ulz82cw/expe
+EXP_ROOT_SNAPSHOT: /gpfsscratch/rech/vrk/ulz82cw/expe
+TEST:
+  MODE: single
+  RESTORE_FROM:
+    - /gpfswork/rech/vrk/ulz82cw/expe/ncda/gc_idd_olpod_e-6_lr_2.5e-5_7c_sr/model.pth
+  INPUT_SIZE_TARGET:
+    - 640
+    - 320
+  OUTPUT_SIZE_TARGET:
+    - 640
+    - 320
+  SET_TARGET:
+    - val
+    - val
+    - val
