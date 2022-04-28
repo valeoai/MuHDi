@@ -13,7 +13,7 @@ If you find this code useful for your research, please cite our [paper](https://
 @inproceedings{saporta2022muhdi,
   title={Multi-Head Distillation for Continual Unsupervised Domain Adaptation in Semantic Segmentation},
   author={Saporta, Antoine and Douillard, Arthur and Vu, Tuan-Hung and P{\'e}rez, Patrick and Cord, Matthieu},
-  booktitle={CVPRW},
+  booktitle={IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshop},
   year={2022}
 }
 ```
