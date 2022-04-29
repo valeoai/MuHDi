@@ -184,7 +184,7 @@ $ python test.py --cfg ./configs/gta2cityscapes2idd2mapillary_muhdi.yml
 ```
 
 ## Acknowledgements
-This codebase is heavily borrowed from [ADVENT](https://github.com/valeoai/ADVENT) and [MTAF](https://github.com/valeoai/MTAF).
+This codebase is heavily borrowed from [ADVENT](https://github.com/valeoai/ADVENT) and [MTAF](https://github.com/valeoai/MTAF), as well as [PLOP](https://github.com/arthurdouillard/CVPR2021_PLOP).
 
 ## License
 MuHDi is released under the [Apache 2.0 license](./LICENSE).
